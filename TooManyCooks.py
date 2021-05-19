@@ -29,14 +29,8 @@ class Main(commands.Cog):
         self.bot = bot
         self.total = 1.00
 
+
     
-    @commands.Cog.listener(pass_context=True)
-    async def interesting(self, ctx, message: str):
-        emeliaId = 442044853728051200
-        if ctx.author.id == emeliaId and 'interesting' in message:
-            a = '<@{0}>'.format(ctx.author.id)
-            msg = ', You are not permitted to use the word **interesting**. Please refrain from using it!'
-            await ctx.send(a + msg)
 
     @commands.command(pass_context=True)
     async def moodle(self, ctx, message: str):
@@ -314,6 +308,13 @@ async def search_gifs(query):
     except ApiException as e:
         return "Exception when calling DefaultApi->gifs_search_get: %s\n" % e
 
+@bot.event
+async def interesting(self, message: str):
+    emeliaId = 442044853728051200
+    if message.author.id == emeliaId and 'interesting' in message:
+        a = '<@{0}>'.format(message.author.id)
+        msg = ', You are not permitted to use the word **interesting**. Please refrain from using it!'
+        await bot.send(a + msg)
 
 bot.add_cog(Main(bot))
 bot.run(TOKEN)
