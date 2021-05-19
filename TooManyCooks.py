@@ -29,7 +29,8 @@ class Main(commands.Cog):
         self.bot = bot
         self.total = 1.00
 
-    @commands.event(pass_context=True)
+    
+    @commands.Cog.listener(pass_context=True)
     async def interesting(self, ctx, message: str):
         emeliaId = 442044853728051200
         if ctx.author.id == emeliaId and 'interesting' in message:
