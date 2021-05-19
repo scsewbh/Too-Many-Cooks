@@ -29,6 +29,14 @@ class Main(commands.Cog):
         self.bot = bot
         self.total = 1.00
 
+    @commands.event(pass_context=True)
+    async def interesting(self, ctx, message: str):
+        emeliaId = 442044853728051200
+        if ctx.author.id == emeliaId and 'interesting' in message:
+            a = '<@{0}>'.format(ctx.author.id)
+            msg = ', You are not permitted to use the word **interesting**. Please refrain from using it!'
+            await ctx.send(a + msg)
+
     @commands.command(pass_context=True)
     async def moodle(self, ctx, message: str):
         if message in courses.keys():
