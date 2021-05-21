@@ -308,7 +308,6 @@ async def search_gifs(query):
     except ApiException as e:
         return "Exception when calling DefaultApi->gifs_search_get: %s\n" % e
 
-@bot.event
 async def on_message(message):
     emeliaId = 442044853728051200
     msg = message.content.lower()
