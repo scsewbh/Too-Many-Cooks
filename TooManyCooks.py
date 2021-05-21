@@ -309,12 +309,13 @@ async def search_gifs(query):
         return "Exception when calling DefaultApi->gifs_search_get: %s\n" % e
 
 @bot.event
-async def interesting(self, message: str):
+async def on_message(message):
     emeliaId = 442044853728051200
-    if message.author.id == emeliaId and 'interesting' in message:
+    if message.author.id == emeliaId and 'interesting' in message.content.lower():
         a = '<@{0}>'.format(message.author.id)
         msg = ', You are not permitted to use the word **interesting**. Please refrain from using it!'
-        await bot.send(a + msg)
+        channel = message.channel
+        await channel.send(a + msg)
 
 bot.add_cog(Main(bot))
 bot.run(TOKEN)
