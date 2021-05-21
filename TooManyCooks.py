@@ -311,11 +311,15 @@ async def search_gifs(query):
 @bot.event
 async def on_message(message):
     emeliaId = 442044853728051200
-    if message.author.id == emeliaId and 'interesting' in message.content.lower():
+    msg = message.content.lower()
+    msg = re.sub(r'[^a-z]+', '', msg)
+    if message.author.id == emeliaId and 'interesting' in msg:
         a = '<@{0}>'.format(message.author.id)
         msg = ', You are not permitted to use the word **interesting**. Please refrain from using it!'
         channel = message.channel
         await channel.send(a + msg)
+    else:
+        return
 
 bot.add_cog(Main(bot))
 bot.run(TOKEN)
