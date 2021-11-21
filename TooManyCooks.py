@@ -15,8 +15,8 @@ import re
 
 
 TOKEN = os.environ.get("TOKEN")
-courses = {'qazi': 'CMPT 364 Cloud Computing and Virtualization', 'tina': 'CMPT 438 Algorithms', 'arafat': 'CMPT 456 Software Engineering'}
-version = 'v1.2'
+courses = {"qazi": "CMPG 780 Linux Kernel Programming", "igor": "CMPT 465 Neural Networks and Learning Systems", "miaomiao": "CMPG 667 Computer Networking", "aggie": "CMPG 638 Design&Analy of Algorithms"}
+version = 'v1.5'
 bot = commands.Bot(command_prefix=commands.when_mentioned_or('-'))
 giphy_token = os.environ.get("G-TOKEN")
 api_instance = giphy_client.DefaultApi()
@@ -187,7 +187,7 @@ class Main(commands.Cog):
         time = int(timestr[6:])
         count = time
         msg = await ctx.send(str(time))
-        while count >= 0:
+        while count > 0:
             count -= 1
             await asyncio.sleep(1)
             await msg.edit(content=str(count))
