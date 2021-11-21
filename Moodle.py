@@ -52,9 +52,7 @@ class Moodle:
         for ai in activityInstances:
             titleName = ai.find('span', {'class': 'instancename'}).text
             if assign in titleName.lower(): #or hw in titleName.lower():
-
                 hrefInstance = ai.find('a', href=True).get('href') #30 DAYs after due date dont include
-                print(hrefInstance)
                 hwUnparsed = self.session.get(hrefInstance)
                 soup = bs(hwUnparsed.text, 'html.parser')
                 statusTable = soup.find('div', {'data-region': 'activity-dates'})
