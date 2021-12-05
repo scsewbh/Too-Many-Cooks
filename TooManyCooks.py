@@ -289,6 +289,13 @@ class Main(commands.Cog):
             await ctx.voice_client.disconnect()
             print("Bot left the voice channel")
 
+    @commands.command(pass_context=True)
+    async def leave(self, ctx):
+        try:
+            await ctx.voice_client.disconnect()
+        except:
+            print("Not Important")
+
 
 @bot.event
 async def on_ready():
