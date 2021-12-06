@@ -253,7 +253,7 @@ class Main(commands.Cog):
         striy = ctx.message.content
         strgy = striy[6:]
         url = self.getYTurl(strgy)
-        YDL_OPTIONS = {'format': 'bestaudio', 'noplaylist': 'True'}
+        YDL_OPTIONS = {'format': 'bestaudio', 'noplaylist': 'True', 'geo_bypass': 'True'}
         FFMPEG_OPTIONS = {'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5', 'options': '-vn'}
 
         x = 10
