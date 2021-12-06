@@ -20,5 +20,4 @@ soupsieve==2.0.1
 urllib3==1.25.10
 yarl==1.6.0
 youtube-dl==2021.6.6
-git+https://github.com/Rapptz/discord.py
 ffmpeg
